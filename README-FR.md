@@ -1,6 +1,6 @@
 # Spaced Memo - Application d'Apprentissage par Répétition Espacée
 
-![Logo de Spaced Memo](URL_DU_LOGO)
+![Logo de Spaced Memo](./assets/spacesdLogo.png)
 
 ## Introduction
 

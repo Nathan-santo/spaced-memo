@@ -37,7 +37,7 @@ $ cd spaced-memo
 3. Installez les dépendances :
 
 ```bash
-$ cd spaced-memo
+$ npm install
 ```
 
 ## Utilisation

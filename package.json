@@ -1,13 +1,16 @@
 {
   "name": "spaced-memo",
   "private": true,
+  "homepage": "https://solarpush.github.io/spaced-memo/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "dayjs": "^1.11.10",

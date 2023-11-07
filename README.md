@@ -1,6 +1,6 @@
 # Spaced Memo - Spaced Repetition Learning App
 
-![Spaced Memo Logo](URL_DU_LOGO)
+![Spaced Memo Logo](./src/assets/spaced-memo.png)
 
 ## Introduction
 
@@ -22,17 +22,47 @@ The primary goal of this application is to provide an interactive tool for learn
 Before installing Spaced Memo, ensure you have Node.js and npm installed on your system.
 
 1. Clone this repository:
-   $ https://github.com/solarpush/spaced-memo.git
+
+```bash
+$ git clone https://github.com/solarpush/spaced-memo.git
+```
 
 2. Navigate to the project directory:
 
+```bash
+$ cd spaced-memo
+```
+
 3. Install dependencies:
+
+```bash
+$ cd spaced-memo
+```
 
 ## Usage
 
 To run Spaced Memo in development mode, use the following command:
 
-The application will be accessible at `http://localhost:5173` in your browser. Use Spaced Memo to explore lessons, spaced reviews, and hands-on exercises related to React.
+1. Start the development server:
+
+```bash
+$ npm run dev
+```
+
+2. Build the project (compile) and export the final files to the ./dist folder:
+
+```bash
+$ npm run build
+```
+
+3. Launch a preview of the final file before deploying it on a local server (`http://localhost:4173`):
+
+```bash
+$ npm run preview
+```
+
+In development mode, the application will be accessible at `http://localhost:5173` in your browser. Use Spaced Memo to explore lessons, spaced reviews, and hands-on exercises related to React.
+T
 
 ## Contribute
 
@@ -46,7 +76,9 @@ We encourage contributions to Spaced Memo. If you'd like to contribute to develo
 
 4. Submit a pull request for your contribution.
 
-5. Our team will review your contribution and merge it if it aligns with project standards.
+5. I will review your contribution and merge it if it aligns with project standards.
+
+License
 
 ## License
 

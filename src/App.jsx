@@ -7,6 +7,7 @@ import dayjs from "dayjs";
 import ForcedViewSelector from "./components/ForcedViewSelector/ForcedViewSelector";
 import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
+import spacedLogo from "./assets/spaced-memo.png";
 
 //The App function return Jsx.ELEMENT => return after compilation html and javascript vanilla only
 function App() {
@@ -69,7 +70,7 @@ function App() {
       case "down":
         setData((oldState) => {
           const newState = oldState.map((element) => {
-            if (element.id === card.id && element.position >= 1) {
+            if (element.id === card.id && element.position >= 2) {
               const newElement = {
                 ...element,
                 position: --element.position,
@@ -162,7 +163,6 @@ function App() {
         acc.push(curr.position);
         return acc;
       }, []);
-      console.log(forcedView_reduced);
       if (forcedView_reduced.includes(position)) {
         return true;
       } else return false;
@@ -178,6 +178,7 @@ function App() {
   return (
     <div className="app_container">
       <div className="header_container">
+        <img id="logo-app" src={spacedLogo} alt="Spaced-logo" />
         <h1>Spaced Mémo App</h1>
         <Button onClick={() => setFormDisplay(true)}>Ajouter une carte</Button>
       </div>

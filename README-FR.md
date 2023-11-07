@@ -22,17 +22,48 @@ L'objectif principal de cette application est de fournir un outil interactif pou
 Avant d'installer Spaced Memo, assurez-vous d'avoir Node.js et npm installés sur votre système.
 
 1. Clonez ce dépôt :
-   $ https://github.com/solarpush/spaced-memo.git
+
+```bash
+$ git clone https://github.com/solarpush/spaced-memo.git
+
+```
 
 2. Accédez au répertoire du projet :
 
+```bash
+$ cd spaced-memo
+```
+
 3. Installez les dépendances :
+
+```bash
+$ cd spaced-memo
+```
 
 ## Utilisation
 
 Pour exécuter Spaced Memo en mode développement, utilisez la commande suivante :
 
-L'application sera accessible à l'adresse `http://localhost:5173` dans votre navigateur. Utilisez Spaced Memo pour explorer les leçons, les révisions espacées et les exercices pratiques liés à React.
+1. Lancer le serveur de developement :
+
+```bash
+$ npm run dev
+```
+
+2. Build le projet (compilation) et exporter les ficher finaux dans le dossier ./dist :
+
+```bash
+$ npm run build
+```
+
+3. Lancer une préview du fichier final avant déployement sur un serveur local (`http://localhost:4173`) :
+
+```bash
+$ npm run preview
+```
+
+En mode dévelopement l'application sera accessible à l'adresse `http://localhost:5173` dans votre navigateur.
+Utilisez Spaced Memo pour explorer les leçons, les révisions espacées et les exercices pratiques liés à React.
 
 ## Contribuer
 
@@ -42,11 +73,11 @@ Nous encourageons les contributions à Spaced Memo. Si vous souhaitez contribuer
 
 2. Créez une branche pour votre contribution :
 
-3. Effectuez vos modifications et assurez-vous que les tests passent.
+3. Effectuez vos modifications et assurez-vous que les tests passent.(Si il y en à)
 
 4. Soumettez une demande d'extraction (pull request) pour votre contribution.
 
-5. Notre équipe examinera votre contribution et la fusionnera si elle est conforme aux normes du projet.
+5. J'examinerai votre contribution et la fusionnerai si elle est conforme aux normes du projet.
 
 ## Licence
 

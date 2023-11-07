@@ -1,6 +1,6 @@
 {
   "name": "spaced-memo",
-  "private": true,
+  "private": false,
   "homepage": "https://solarpush.github.io/spaced-memo/",
   "version": "0.0.0",
   "type": "module",

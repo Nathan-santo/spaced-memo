@@ -11,6 +11,7 @@ const CustomCard = ({ data, actions }) => {
       className="card"
       title={data.title}
       subTitle={!data.form && "Niveau " + data.position}
+      style={{ maxHeight: data.form ? "800px" : "350px" }}
     >
       {data.form ? data.form : <p>{data.ask}</p>}
       {!data.form && (

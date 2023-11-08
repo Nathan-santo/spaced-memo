@@ -30,7 +30,9 @@ const CardForm = ({ actions }) => {
     const card = {
       ...formState,
     };
+
     actions.save_newCard(card);
+    actions.show("Enregistré", "success");
     resetForm();
   }
 

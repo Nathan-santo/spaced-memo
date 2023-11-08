@@ -14,7 +14,9 @@ const ForcedViewSelector = ({ forcedView, actions }) => {
 
   return (
     <div className="selector">
+      <label htmlFor="forced_selector">Vue forcé des niveaux</label>
       <MultiSelect
+        id="forced_selector"
         value={forcedView}
         onChange={(e) => actions.update_forcedView(e.value)}
         options={cities}

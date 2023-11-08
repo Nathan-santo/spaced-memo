@@ -64,6 +64,11 @@ $ npm run preview
 In development mode, the application will be accessible at `http://localhost:5173` in your browser. Use Spaced Memo to explore lessons, spaced reviews, and hands-on exercises related to React.
 T
 
+### Online preview
+
+Online preview at this address :
+[Spaced-Memo Online Préview](https://solarpush.github.io/spaced-memo/)
+
 ## Contribute
 
 We encourage contributions to Spaced Memo. If you'd like to contribute to development, please follow these steps:

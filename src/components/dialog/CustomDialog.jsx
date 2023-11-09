@@ -9,15 +9,10 @@ const CustomDialog = ({ data, visible, actions }) => {
       <Button
         label="Non"
         icon="pi pi-times"
-        onClick={() => rejectButton()}
+        onClick={rejectButton}
         className="p-button-text"
       />
-      <Button
-        label="OuI"
-        icon="pi pi-check"
-        onClick={() => acceptButton()}
-        autoFocus
-      />
+      <Button label="OuI" icon="pi pi-check" onClick={acceptButton} autoFocus />
     </div>
   );
 
@@ -31,9 +26,11 @@ const CustomDialog = ({ data, visible, actions }) => {
   }
 
   return (
-    <Dialog header={data?.title} visible={visible} footer={footerContent}>
-      <p> Réponse : {data?.response}</p>
-    </Dialog>
+    <>
+      <Dialog header={data?.title} visible={visible} footer={footerContent}>
+        <p> Réponse : {data?.response}</p>
+      </Dialog>
+    </>
   );
 };
 

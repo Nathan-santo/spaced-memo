@@ -9,7 +9,6 @@ const ForcedViewSelector = ({ forcedView, actions }) => {
     { position: 5, niveau: "Niveau 5" },
     { position: 6, niveau: "Niveau 6" },
     { position: 7, niveau: "Niveau 7" },
-    { position: 8, niveau: "Niveau 8" },
   ];
 
   return (

@@ -4,15 +4,14 @@ import CustomCard from "./components/card/CustomCard";
 import CustomDialog from "./components/dialog/CustomDialog";
 import CardForm from "./components/form/CardForm";
 import dayjs from "dayjs";
-import ForcedViewSelector from "./components/ForcedViewSelector/ForcedViewSelector";
+import ForcedViewSelector from "./components/forcedView/ForcedViewSelector";
 import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
 import spacedLogo from "./assets/spaced-memo.png";
 import first_Data from "./mock_data.json";
-import { ListBox } from "primereact/listbox";
 import { Toast } from "primereact/toast";
-import { Chip } from "primereact/chip";
 import { Knob } from "primereact/knob";
+import HelperTooltip from "./components/helper-tooltip/HelperTooltip";
 
 //The App function return Jsx.ELEMENT => return after compilation html and javascript vanilla only
 function App() {
@@ -44,30 +43,45 @@ function App() {
   function update_forcedView(selectedView) {
     setForcedView(selectedView);
   }
-  function delete_thisCard(data, cardId) {
-    return data.filter((f) => f.id !== cardId);
-  }
 
   function update_positionCard(card, upOrDown) {
     switch (upOrDown) {
       case "up":
         setData((oldState) => {
           let OnlyIfDelete = null;
-          const newState = oldState.map((element) => {
-            if (element.id === card.id) {
-              if (element.position <= 6) {
-                const newElement = {
-                  ...element,
-                  position: ++element.position,
-                  lastView: today,
-                };
+          const newState = oldState
+            .map((element) => {
+              if (element.id === card.id) {
+                if (element.position <= 6) {
+                  const newElement = {
+                    ...element,
+                    position: ++element.position,
+                    lastView: today,
+                  };
 
-                return newElement;
+                  return newElement;
+                }
+              } else return element;
+            })
+            .filter((element) => {
+              if (element !== undefined) {
+                return element;
               } else {
-                OnlyIfDelete = delete_thisCard(oldState, element.id);
+                const numberOf_cardsClosed =
+                  localStorage.getItem("CardsClosed");
+                if (
+                  numberOf_cardsClosed &&
+                  parseInt(numberOf_cardsClosed) < 100
+                ) {
+                  localStorage.setItem(
+                    "CardsClosed",
+                    (parseInt(numberOf_cardsClosed) + 1).toString()
+                  );
+                } else {
+                  localStorage.setItem("CardsClosed", "1");
+                }
               }
-            } else return element;
-          });
+            });
           if (OnlyIfDelete) {
             return OnlyIfDelete;
           }
@@ -77,13 +91,21 @@ function App() {
       case "down":
         setData((oldState) => {
           const newState = oldState.map((element) => {
-            if (element.id === card.id && element.position >= 2) {
-              const newElement = {
-                ...element,
-                position: --element.position,
-                lastView: today,
-              };
-              return newElement;
+            if (element.id === card.id) {
+              if (element.position >= 2) {
+                const newElement = {
+                  ...element,
+                  position: --element.position,
+                  lastView: today,
+                };
+                return newElement;
+              } else {
+                const newElement = {
+                  ...element,
+                  lastView: today,
+                };
+                return newElement;
+              }
             } else return element;
           });
           return newState;
@@ -184,22 +206,33 @@ function App() {
   };
 
   const CustomKnobs = (data) => {
-    return <Knob value={50} step={10} />;
+    const numberOf_cardsClosed = localStorage.getItem("CardsClosed");
+    return (
+      <Knob
+        value={numberOf_cardsClosed ? parseInt(numberOf_cardsClosed) : 0}
+        step={1}
+      />
+    );
   };
   useEffect(() => {
     if (data.length === 0) {
+      //Si pas de donnés intégration de la maquette de donnée dans le local storage
       localStorage.setItem("data", JSON.stringify(first_Data));
+      //Ajout de ces données par le hook useState
       setData(first_Data);
     } else {
+      //sinon Enregistrement des données par écrasement des données précédentes
       localStorage.setItem("data", JSON.stringify(data));
     }
+    //fonction executé  à chaques modification de data
   }, [data]);
 
   return (
     <div className="app_container">
       <div className="header_container">
+        <HelperTooltip />
         <img id="logo-app" src={spacedLogo} alt="Spaced-logo" />
-        <h1>Spaced Mémo App</h1>
+        <h1>Mémorisation espacée</h1>
         <Button onClick={() => setFormDisplay(true)}>Ajouter une carte</Button>
       </div>
       <div className="app_content">
@@ -259,11 +292,14 @@ function App() {
           </div>
           <div className="stats_container">
             <h3>Stats</h3>
-            <div className="stats_content"></div>
+            <div className="stats_content">
+              <span>Nombre de cartes terminés</span>
+              <CustomKnobs />
+            </div>
           </div>
         </div>
       </div>
-      <CustomKnobs data={data} />
+
       <Toast ref={toast} />
     </div>
   );

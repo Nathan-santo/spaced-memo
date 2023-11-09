@@ -27,7 +27,12 @@ const CustomDialog = ({ data, visible, actions }) => {
 
   return (
     <>
-      <Dialog header={data?.title} visible={visible} footer={footerContent}>
+      <Dialog
+        header={data?.title}
+        visible={visible}
+        footer={footerContent}
+        style={{ width: "70vw" }}
+      >
         <p> Réponse : {data?.response}</p>
       </Dialog>
     </>

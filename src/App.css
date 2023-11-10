@@ -79,3 +79,7 @@ h1 {
 .card {
   overflow: auto;
 }
+.toast_alert {
+  max-width: 60vw;
+  width: 300px;
+}

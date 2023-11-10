@@ -19,10 +19,12 @@ const CustomDialog = ({ data, visible, actions }) => {
   function rejectButton() {
     actions.update_positionCard(data, "down");
     actions.onHide();
+    actions.show("Niveau abaisser", "error");
   }
   function acceptButton() {
     actions.update_positionCard(data, "up");
     actions.onHide();
+    actions.show("Niveau augmenté", "success");
   }
 
   return (

@@ -9,9 +9,9 @@ import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
 import spacedLogo from "./assets/spaced-memo.png";
 import first_Data from "./mock_data.json";
-import { Toast } from "primereact/toast";
 import { Knob } from "primereact/knob";
 import HelperTooltip from "./components/helper-tooltip/HelperTooltip";
+import CustomToast from "./components/toast/CustomToast";
 
 //The App function return Jsx.ELEMENT => return after compilation html and javascript vanilla only
 function App() {
@@ -243,7 +243,11 @@ function App() {
         <CustomDialog
           data={cardInformations}
           visible={visible}
-          actions={{ onHide: onHide, update_positionCard: update_positionCard }}
+          actions={{
+            onHide: onHide,
+            update_positionCard: update_positionCard,
+            show: show,
+          }}
         />
         <div className="card_and_stats_container">
           <div className="cards_container">
@@ -300,7 +304,7 @@ function App() {
         </div>
       </div>
 
-      <Toast ref={toast} />
+      <CustomToast ref={toast} />
     </div>
   );
 }

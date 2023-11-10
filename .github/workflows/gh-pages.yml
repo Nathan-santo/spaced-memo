@@ -12,8 +12,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Configure Git Identity
+        run: |
+          git config --global user.email "pierre.mjenr@gmail.com"
+          git config --global user.name "solarpush"
 
+      - name: Install gh-pages
+        run: npm install -g gh-pages@6.0.0
       - name: Deploy
-        run: npx gh-pages -d build
+        run: npm gh-pages -d build
         env:
           CI: false

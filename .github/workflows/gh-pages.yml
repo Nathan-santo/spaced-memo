@@ -15,7 +15,7 @@ jobs:
       - name: Configure Git Identity
         run: |
           git config --global user.email "pierre.mjenr@gmail.com"
-          git config --global user.name "solarpush"
+          git config --global user.name "Nicolas Pierre"
 
       - name: Install gh-pages
         run: npm install -g gh-pages@6.0.0

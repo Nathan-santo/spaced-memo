@@ -1,4 +1,4 @@
-import React from "react";
+import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
@@ -7,11 +7,11 @@ import "primeicons/primeicons.css";
 import { PrimeReactProvider } from "primereact/api";
 import { Data_Provider } from "./contexts/Data_context.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  <StrictMode>
     <PrimeReactProvider>
       <Data_Provider>
         <App />
       </Data_Provider>
     </PrimeReactProvider>
-  </React.StrictMode>
+  </StrictMode>
 );

@@ -8,6 +8,10 @@ Spaced Memo is a spaced repetition learning app designed to help students effect
 
 The primary goal of this application is to provide an interactive tool for learning React. Students can use Spaced Memo to reinforce their understanding of React concepts through spaced reviews, hands-on exercises, and quizzes.
 
+### Live slides
+
+[Live slides on slides.com (Only for students)](https://slides.com/d/Fqq326k/live)
+
 ## Table of Contents
 
 - [Installation](#installation)

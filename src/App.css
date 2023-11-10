@@ -44,6 +44,10 @@ h1 {
 }
 .stats_content {
   display: flex;
+  /* flex-direction: column; */
+}
+.individual_stats {
+  display: flex;
   flex-direction: column;
 }
 

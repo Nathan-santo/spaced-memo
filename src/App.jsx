@@ -9,9 +9,9 @@ import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
 import spacedLogo from "./assets/spaced-memo.png";
 import first_Data from "./mock_data.json";
-import { Knob } from "primereact/knob";
 import HelperTooltip from "./components/helper-tooltip/HelperTooltip";
 import CustomToast from "./components/toast/CustomToast";
+import CustomStats from "./components/stats/CustomStats";
 
 //The App function return Jsx.ELEMENT => return after compilation html and javascript vanilla only
 function App() {
@@ -69,15 +69,49 @@ function App() {
               } else {
                 const numberOf_cardsClosed =
                   localStorage.getItem("CardsClosed");
+                const numberOf_ten_cardsClosed =
+                  localStorage.getItem("TenCardsClosed");
+                const numberOf_undred_cardsClosed =
+                  localStorage.getItem("UndredCardsClosed");
                 if (
                   numberOf_cardsClosed &&
-                  parseInt(numberOf_cardsClosed) < 100
+                  parseInt(numberOf_cardsClosed) < 9
                 ) {
                   localStorage.setItem(
                     "CardsClosed",
-                    (parseInt(numberOf_cardsClosed) + 1).toString()
+                    (numberOf_cardsClosed
+                      ? parseInt(numberOf_cardsClosed) + 1
+                      : 0
+                    ).toString()
                   );
+                } else if (
+                  numberOf_ten_cardsClosed &&
+                  parseInt(numberOf_ten_cardsClosed) < 9
+                ) {
+                  localStorage.setItem(
+                    "TenCardsClosed",
+                    (numberOf_ten_cardsClosed
+                      ? parseInt(numberOf_ten_cardsClosed) + 1
+                      : 1
+                    ).toString()
+                  );
+                  localStorage.setItem("CardsClosed", "0");
+                } else if (
+                  numberOf_undred_cardsClosed &&
+                  parseInt(numberOf_undred_cardsClosed) < 9
+                ) {
+                  localStorage.setItem(
+                    "UndredCardsClosed",
+                    (numberOf_undred_cardsClosed
+                      ? parseInt(numberOf_undred_cardsClosed) + 1
+                      : 1
+                    ).toString()
+                  );
+                  localStorage.setItem("TenCardsClosed", "0");
+                  localStorage.setItem("CardsClosed", "0");
                 } else {
+                  localStorage.setItem("UndredCardsClosed", "0");
+                  localStorage.setItem("TenCardsClosed", "0");
                   localStorage.setItem("CardsClosed", "1");
                 }
               }
@@ -205,15 +239,6 @@ function App() {
     });
   };
 
-  const CustomKnobs = (data) => {
-    const numberOf_cardsClosed = localStorage.getItem("CardsClosed");
-    return (
-      <Knob
-        value={numberOf_cardsClosed ? parseInt(numberOf_cardsClosed) : 0}
-        step={1}
-      />
-    );
-  };
   useEffect(() => {
     if (data.length === 0) {
       //Si pas de donnés intégration de la maquette de donnée dans le local storage
@@ -296,14 +321,13 @@ function App() {
           </div>
           <div className="stats_container">
             <h3>Stats</h3>
+            <span>Nombre de cartes terminés</span>
             <div className="stats_content">
-              <span>Nombre de cartes terminés</span>
-              <CustomKnobs />
+              <CustomStats />
             </div>
           </div>
         </div>
       </div>
-
       <CustomToast ref={toast} />
     </div>
   );

@@ -20,6 +20,6 @@ jobs:
       - name: Install gh-pages
         run: npm install -g gh-pages@6.0.0
       - name: Deploy
-        run: npm gh-pages -d build
+        run: npx gh-pages -d build
         env:
           CI: false

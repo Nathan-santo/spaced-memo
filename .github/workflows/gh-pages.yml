@@ -13,7 +13,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: https://github.com/solarpush/spaced-memo
+      url: ${{steps.deployment.outputs.page_url}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

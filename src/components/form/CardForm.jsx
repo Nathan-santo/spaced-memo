@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
@@ -5,6 +6,7 @@ import { useState } from "react";
 import { uid } from "uid";
 
 const CardForm = ({ actions }) => {
+  const now = new dayjs();
   const [formState, setFormState] = useState({
     title: "",
     ask: "",
@@ -29,6 +31,7 @@ const CardForm = ({ actions }) => {
     e.preventDefault();
     const card = {
       ...formState,
+      lastView: now.format(),
     };
 
     actions.save_newCard(card);
@@ -38,7 +41,7 @@ const CardForm = ({ actions }) => {
 
   return (
     <form onSubmit={saveCard} className="form_container">
-      <label htmlFor="title_input">Titre de la carte.</label>
+      <label htmlFor="title_input">Sujet</label>
       <InputText
         id="title_input"
         className="p-inputtext-sm"

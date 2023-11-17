@@ -18,12 +18,12 @@ const CustomDialog = ({ data, visible, actions }) => {
 
   function rejectButton() {
     actions.update_positionCard(data, "down");
-    actions.onHide();
+    actions.hide();
     actions.show("Niveau abaisser", "error");
   }
   function acceptButton() {
     actions.update_positionCard(data, "up");
-    actions.onHide();
+    actions.hide();
     actions.show("Niveau augmenté", "success");
   }
 
@@ -32,6 +32,7 @@ const CustomDialog = ({ data, visible, actions }) => {
       <Dialog
         header={data?.title}
         visible={visible}
+        onHide={() => actions.hide()}
         footer={footerContent}
         style={{ width: "70vw" }}
       >

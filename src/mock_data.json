@@ -1,21 +1,5 @@
 [
     {
-        "title": "JavaScript",
-        "ask": "Qu'est-ce que JavaScript ?",
-        "response": "JavaScript est un langage de programmation de haut niveau utilisé pour créer des applications web interactives, ajouter des fonctionnalités dynamiques aux pages web et gérer le comportement côté client dans les navigateurs web.",
-        "position": 1,
-        "id": "1",
-        "lastView": "2023-11-01T00:00:00.000Z"
-    },
-    {
-        "title": "Variable en JavaScript ?",
-        "ask": "Comment déclarer une variable en JavaScript ?",
-        "response": "Vous pouvez déclarer une variable en utilisant les mots-clés `var`, `let`, ou `const`. Par exemple :\n\n- `var maVariable = 42;`\n- `let uneVariable = \"Bonjour\";`\n- `const constante = true;`",
-        "position": 1,
-        "id": "2",
-        "lastView": "2023-11-01T00:00:00.000Z"
-    },
-    {
         "title": "Différence entre let et const en JavaScript",
         "ask": "Quelle est la différence entre `let` et `const` en JavaScript ?",
         "response": "`let` permet de déclarer des variables dont la valeur peut être modifiée, tandis que `const` permet de déclarer des variables dont la valeur ne peut pas être réassignée après avoir été définie.",
@@ -37,14 +21,6 @@
         "response": "La portée (scope) en JavaScript détermine la visibilité des variables. Les variables déclarées dans une fonction sont généralement locales à cette fonction, tandis que les variables déclarées en dehors des fonctions sont généralement globales.",
         "position": 1,
         "id": "5",
-        "lastView": "2023-11-01T00:00:00.000Z"
-    },
-    {
-        "title": "Ajout d'un événement en JavaScript",
-        "ask": "Comment ajouter un événement à un élément HTML en JavaScript ?",
-        "response": "Vous pouvez ajouter un événement à un élément HTML en utilisant la méthode `addEventListener`. Par exemple :\n\n```javascript\nconst monBouton = document.getElementById(\"monBouton\");\n\nmonBouton.addEventListener(\"click\", function() {\n  // Code à exécuter lorsque le bouton est cliqué\n});\n```",
-        "position": 1,
-        "id": "6",
         "lastView": "2023-11-01T00:00:00.000Z"
     },
     {

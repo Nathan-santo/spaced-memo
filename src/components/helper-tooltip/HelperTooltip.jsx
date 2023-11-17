@@ -11,21 +11,7 @@ const HelperTooltip = () => {
   }
   return (
     <>
-      <div
-        style={{
-          position: "absolute",
-          top: "30px",
-          right: "30px",
-          display: "flex",
-          placeContent: "center",
-          width: "30px",
-          height: "30px",
-          border: "1px white dotted",
-          borderRadius: "50%",
-          cursor: "pointer",
-        }}
-        onClick={helpFunction}
-      >
+      <div className="helper_tooltip" onClick={helpFunction}>
         <i
           className="pi pi-question"
           style={{ transform: "translateY(25%)" }}

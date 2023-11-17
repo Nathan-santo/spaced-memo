@@ -18,6 +18,34 @@
     cursor: cell;
   }
 }
+.helper_tooltip {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  display: flex;
+  place-content: center;
+  width: 30px;
+  height: 30px;
+  border: 2px rgba(255, 191, 0, 0.514) dotted;
+  border-radius: 50%;
+  cursor: cell;
+}
+.switch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  position: absolute;
+  top: 10px;
+  width: 140px;
+  margin-bottom: 30px;
+  @media screen and (max-width: 500px) {
+    width: 80px;
+  }
+  :hover {
+    cursor: cell;
+  }
+}
 h1 {
   font-size: x-large;
 }
@@ -86,4 +114,21 @@ h1 {
 .toast_alert {
   max-width: 60vw;
   width: 300px;
+}
+.header_toolbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  @media screen and (max-width: 500px) {
+    justify-content: space-around;
+    align-items: center;
+    height: 160px;
+    flex-direction: column;
+  }
+}
+.add_card_button {
+  width: 120px;
+  height: 50px;
 }

@@ -20,6 +20,7 @@ const ForcedViewSelector = ({ forcedView, actions }) => {
         onChange={(e) => actions.update_forcedView(e.value)}
         options={cities}
         optionLabel="niveau"
+        selectAllLabel="Tous"
         display="chip"
         placeholder="Forcer l'affichage par niveau"
         maxSelectedLabels={8}

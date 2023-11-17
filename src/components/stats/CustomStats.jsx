@@ -4,6 +4,7 @@ const CustomStats = () => {
   const numberOf_undred_cardsClosed = localStorage.getItem("UndredCardsClosed");
   const numberOf_ten_cardsClosed = localStorage.getItem("TenCardsClosed");
   const numberOf_cardsClosed = localStorage.getItem("CardsClosed");
+
   return (
     <>
       <div className="individual_stats">

@@ -11,11 +11,10 @@ const HelperTooltip = () => {
   }
   return (
     <>
-      <div className="helper_tooltip" onClick={helpFunction}>
-        <i
-          className="pi pi-question"
-          style={{ transform: "translateY(25%)" }}
-        ></i>
+      <div className="helper_tooltip_container">
+        <div className="helper_tooltip" onClick={helpFunction}>
+          <i className="pi pi-question icon_helper"></i>
+        </div>
       </div>
       <Dialog
         header={"Aide"}

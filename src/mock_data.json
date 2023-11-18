@@ -10,7 +10,7 @@
     {
         "title": "Création d'une fonction en JavaScript",
         "ask": "Comment créer une fonction en JavaScript ?",
-        "response": "Vous pouvez créer une fonction en utilisant la syntaxe suivante :\n\n```javascript\nfunction maFonction(parametre1, parametre2) {\n  // Code de la fonction\n  return resultat;\n}\n```",
+        "response": "Vous pouvez créer une fonction en utilisant la syntaxe suivante : function maFonction(parametre1, parametre2) {  // Code de la fonction return resultat;}",
         "position": 1,
         "id": "4",
         "lastView": "2023-11-01T00:00:00.000Z"
@@ -34,7 +34,7 @@
     {
         "title": "Composant React ?",
         "ask": "Comment créer un composant React ?",
-        "response": "Vous pouvez créer un composant React en utilisant une classe `React.Component` ou une fonction (composant fonctionnel). Les composants fonctionnels sont couramment utilisés. Par exemple :\n\n```jsx\nimport React from 'react';\n\nfunction MonComposant() {\n  return <div>Mon composant React</div>;\n}\n\nexport default MonComposant;\n```",
+        "response": "Vous pouvez créer un composant React en utilisant une classe `React.Component` ou une fonction (composant fonctionnel). Les composants fonctionnels sont couramment utilisés. ",
         "position": 1,
         "id": "8",
         "lastView": "2023-11-01T00:00:00.000Z"
@@ -58,7 +58,7 @@
     {
         "title": "Evénements en React ?",
         "ask": "Comment gérer les événements en React ?",
-        "response": "En React, vous pouvez gérer les événements en passant des gestionnaires d'événements (fonctions) en tant que props aux éléments du JSX. Par exemple, pour gérer un clic sur un bouton :\n\n```jsx\n<button onClick={handleClick}>Cliquez ici</button>\n```",
+        "response": "En React, vous pouvez gérer les événements en passant des gestionnaires d'événements (fonctions) en tant que props aux éléments du JSX. Par exemple, pour gérer un clic sur un bouton : <button onClick={handleClick}>Cliquez ici</button>",
         "position": 1,
         "id": "11",
         "lastView": "2023-11-01T00:00:00.000Z"

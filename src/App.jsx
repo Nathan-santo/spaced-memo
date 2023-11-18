@@ -14,6 +14,7 @@ import CustomToast from "./components/toast/CustomToast";
 import CustomStats from "./components/stats/CustomStats";
 import { PrimeReactContext } from "primereact/api";
 import { InputSwitch } from "primereact/inputswitch";
+import { ScrollTop } from "primereact/scrolltop";
 
 //The App function return Jsx.ELEMENT => return after compilation html and javascript vanilla only
 function App() {
@@ -210,107 +211,111 @@ function App() {
       .getAttribute("href");
 
     // Choisissez le nouveau thème en fonction du thème actuel
+
     const newTheme = e.value
-      ? "/themes/lara-dark-indigo/theme.css"
-      : "/themes/lara-light-indigo/theme.css";
+      ? import.meta.env.BASE_URL + "themes/lara-dark-indigo/theme.css"
+      : import.meta.env.BASE_URL + "themes/lara-light-indigo/theme.css";
 
     // Utilisez la fonction changeTheme pour changer le thème dynamiquement
     changeTheme(currentTheme, newTheme, "theme-link");
   }
   return (
-    <div className="app_container">
-      <div className="header_container">
+    <>
+      <div className="header">
+        <img id="logo-app" src={spacedLogo} alt="Spaced-logo" />
         <div className="switch">
-          <label htmlFor="dark_switch">{isDarkMode ? "Dark" : "Light"}</label>
           <InputSwitch
             id="dark_switch"
-            la
             checked={isDarkMode}
             onChange={(e) => switch_theme(e)}
           />
         </div>
         <HelperTooltip />
-        <img id="logo-app" src={spacedLogo} alt="Spaced-logo" />
-        <h1>Apprend à apprendre</h1>
-        <div className="header_toolbar">
-          <Button
-            className="add_card_button"
-            onClick={() => setFormDisplay(true)}
-          >
-            Ajouter une carte
-          </Button>
-          <ForcedViewSelector
-            forcedView={forcedView}
-            actions={{ update_forcedView: update_forcedView }}
-          />
-        </div>
       </div>
-      <div className="app_content">
-        <CustomDialog
-          data={cardInformations}
-          visible={visible}
-          actions={{
-            hide: hide,
-            update_positionCard: update_positionCard,
-            show: show,
-          }}
-        />
-        <div className="card_and_stats_container">
-          <div className="cards_container">
-            <h3>Mes cartes à mémorisé</h3>
-            <div className="cards_content">
-              <Dialog
-                header="Ajouter une carte"
-                visible={formDisplay}
-                onHide={() => setFormDisplay(false)}
-              >
-                <CustomCard
-                  actions={{
-                    setCardInfo: setCardInfo,
-                  }}
-                  data={{
-                    title: "",
-                    form: (
-                      <CardForm
+      <div className="app_container">
+        <div className="header_container">
+          <h1>Apprend à apprendre</h1>
+          <div className="header_toolbar">
+            <Button
+              className="add_card_button"
+              onClick={() => setFormDisplay(true)}
+            >
+              Ajouter une carte
+            </Button>
+            <ForcedViewSelector
+              forcedView={forcedView}
+              actions={{ update_forcedView: update_forcedView }}
+            />
+          </div>
+        </div>
+        <div className="app_content">
+          <CustomDialog
+            data={cardInformations}
+            visible={visible}
+            actions={{
+              hide: hide,
+              update_positionCard: update_positionCard,
+              show: show,
+            }}
+          />
+          <div className="card_and_stats_container">
+            <div className="cards_container">
+              <h3>Mes cartes à mémorisé</h3>
+              <div className="cards_content">
+                <Dialog
+                  header="Ajouter une carte"
+                  visible={formDisplay}
+                  onHide={() => setFormDisplay(false)}
+                >
+                  <CustomCard
+                    actions={{
+                      setCardInfo: setCardInfo,
+                    }}
+                    data={{
+                      title: "",
+                      form: (
+                        <CardForm
+                          actions={{
+                            save_newCard: save_newCard,
+                            show: show,
+                          }}
+                        />
+                      ),
+                    }}
+                  />
+                </Dialog>
+                {data.map((element) => {
+                  if (
+                    is_good_moment_for_display_this_card(element) ||
+                    is_forceView_contain_element_position(element)
+                  ) {
+                    return (
+                      <CustomCard
+                        key={element.id}
+                        data={element}
                         actions={{
-                          save_newCard: save_newCard,
-                          show: show,
+                          setCardInfo: setCardInfo,
+                          setDialogVisibility: setDialogVisibility,
                         }}
                       />
-                    ),
-                  }}
-                />
-              </Dialog>
-              {data.map((element) => {
-                if (
-                  is_good_moment_for_display_this_card(element) ||
-                  is_forceView_contain_element_position(element)
-                ) {
-                  return (
-                    <CustomCard
-                      key={element.id}
-                      data={element}
-                      actions={{
-                        setCardInfo: setCardInfo,
-                        setDialogVisibility: setDialogVisibility,
-                      }}
-                    />
-                  );
-                }
-              })}
+                    );
+                  }
+                })}
+              </div>
             </div>
-          </div>
-          <div className="stats_container">
-            <h3>Stats</h3>
-            <span>Nombre de cartes terminés</span>
-            <div className="stats_content">
-              <CustomStats />
+            <div className="stats_container">
+              <h3>Stats</h3>
+              <span>Nombre de cartes terminés</span>
+              <div className="stats_content">
+                <CustomStats />
+              </div>
             </div>
           </div>
         </div>
+        <CustomToast ref={toast} />
+        <ScrollTop />
       </div>
-      <CustomToast ref={toast} />
-    </div>
+    </>
   );
 }
 

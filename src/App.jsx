@@ -15,6 +15,7 @@ import CustomStats from "./components/stats/CustomStats";
 import { PrimeReactContext } from "primereact/api";
 import { InputSwitch } from "primereact/inputswitch";
 import { ScrollTop } from "primereact/scrolltop";
+import AddCard from "./components/AddCard/AddCard";
 
 //The App function return Jsx.ELEMENT => return after compilation html and javascript vanilla only
 function App() {
@@ -235,6 +236,7 @@ function App() {
       <div className="app_container">
         <div className="header_container">
           <h1>Apprend à apprendre</h1>
+          <AddCard />
           <div className="header_toolbar">
             <Button
               className="add_card_button"
